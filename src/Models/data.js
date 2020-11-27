@@ -14,14 +14,14 @@ const dataModels ={
       const wb = xlsx.readFile('Data.xlsx')
       const ws = xlsx.utils.sheet_to_json(wb.Sheets['Sheet 1'])
       const data = {
-      id : body.id,
+      id : Number(ws[ws.length - 1].id) + 1,
       email: body.email,
       first_name : body.first_name,
       last_name : body.last_name,
       avatar : body.avatar,
       }
+  
       ws.push(data)
-      console.log(ws)
       let inputData = json2xls(ws)
       resolve(fs.writeFileSync('Data.xlsx', inputData, 'binary'))
     })
