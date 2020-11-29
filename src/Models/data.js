@@ -20,7 +20,6 @@ const dataModels ={
       last_name : body.last_name,
       avatar : body.avatar,
       }
-  
       ws.push(data)
       let inputData = json2xls(ws)
       resolve(fs.writeFileSync('Data.xlsx', inputData, 'binary'))

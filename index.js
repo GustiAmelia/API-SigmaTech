@@ -11,9 +11,6 @@ app.listen(process.env.PORT,()=>{
     console.log(`Server is Running at ${process.env.PORT}`);
 });
 
-app.get('/',(req,res)=>{
-    res.send([1,2,3])
-})
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(logger("dev"));
